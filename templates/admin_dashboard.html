@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<title>Admin Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#f4f6ff;
+}
+
+nav{
+background:#333;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+}
+
+.container{
+padding:40px;
+}
+
+.cards{
+display:flex;
+gap:30px;
+margin-bottom:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+width:200px;
+border-radius:8px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+th,td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#4facfe;
+color:white;
+}
+.download:hover{
+    color:#92b994;
+}
+</style>
+
+</head>
+
+<body>
+   
+
+<nav>
+
+<h2>Admin Dashboard</h2>
+
+<a href="{% url 'logout' %}" 
+style="color:white;text-decoration:none;">Logout</a>
+
+</nav>
+<div class="container">
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Patients</h3>
+<h2>{{ total }}</h2>
+</div>
+
+<div class="card">
+<h3>Cancer Cases</h3>
+<h2>{{ cancer }}</h2>
+</div>
+
+<div class="card">
+<h3>Normal Cases</h3>
+<h2>{{ normal }}</h2>
+</div>
+
+</div>
+
+<h2>Recent Predictions</h2>
+<div class="download">
+<a href="{% url 'download_patients' %}">
+<button style="
+padding:10px 20px;
+background:#4CAF50;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+margin-bottom:20px;
+">
+Download Patient Records
+</button>
+</a>
+</div>
+<table>
+
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Gender</th>
+<th>Result</th>
+<th>Date</th>
+</tr>
+
+{% for p in patients %}
+
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.age }}</td>
+<td>{{ p.gender }}</td>
+<td>{{ p.result }}</td>
+<td>{{ p.date }}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+
+</body>
+</html>
