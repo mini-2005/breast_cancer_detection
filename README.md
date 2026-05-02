@@ -80,7 +80,7 @@ breast-cancer-detection/
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone Repository
-git clone https://github.com/your-username/breast-cancer-detection.git
+git clone https://github.com/mini-2005/breast_cancer_detection.git
 cd breast-cancer-detection
 
 ### 2️⃣ Create Virtual Environment
